@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // Initialize number of attempts
+    let attempts = 5;
+    
+    function getNumber() {
+        let input;
+        do {
+            input = +prompt(`Guess the number, 1-10. You have ${attempts} attempts left.`);
+        } while (isNaN(input) || input < 1 || input > 10);
+        return input;
+    }
+
+    // Choose random number 1-10.
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    console.log(randomNumber);
+
+    // Prompt user for number 1-10.
+    let guess = getNumber();
+
+    // Check user's guess against answer.
+    let isGameOver = false;
+    while (isGameOver === false) {
+        // If correct, alert you've won!
+        if (guess === randomNumber) {
+            isGameOver = true;
+            alert("You've won!");
+        // If wrong
+        } else {
+            attempts -= 1;
+            // If attempts equal 0, alert you've lost!
+            if (attempts <= 1) {
+                isGameOver = true;
+                alert("You've lost!");
+            // Else Re-prompt user for new number.
+            } else {
+                guess = getNumber();
+            }
+        }
+    }
+  </script>
+</body>
+</html>
