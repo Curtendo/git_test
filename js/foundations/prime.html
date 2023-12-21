@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let num = +prompt("Please enter an integer: ");
+    let prime = num >= 2 ? "2 " : "";
+    let icounter = 0;
+    let jcounter = 0;
+    let primeCounter = 0;
+
+    for (let i = 3; i <= num; i += 2) {
+        let isPrime = true;
+        icounter++;
+
+        for (let j = 3; j <= Math.sqrt(i); j +=2) {
+            jcounter++;
+            if (i % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            prime += `${i} `;
+            primeCounter++;
+        }
+        
+    }
+    console.log(prime);
+    console.log(`\nicounter = ${icounter}`);
+    console.log(`\njcounter = ${jcounter}`);
+    console.log(`\nprimeCounter = ${primeCounter}`);
+
+</script>
+</html>
